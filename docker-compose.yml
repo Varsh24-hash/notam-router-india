@@ -1,0 +1,17 @@
+services:
+  db:
+    # NOTE: verify this image tag on Docker Hub (pgrouting/pgrouting) before first run
+    image: pgrouting/pgrouting:16-3.4-3.6
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-notam}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-notam}
+      POSTGRES_DB: ${POSTGRES_DB:-notam}
+    ports: ["5432:5432"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/migrations:/docker-entrypoint-initdb.d
+  redis:
+    image: redis:7
+    ports: ["6379:6379"]
+volumes:
+  pgdata:
