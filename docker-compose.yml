@@ -1,7 +1,7 @@
 services:
   db:
     # NOTE: verify this image tag on Docker Hub (pgrouting/pgrouting) before first run
-    image: pgrouting/pgrouting:16-3.4-3.6
+    image: pgrouting/pgrouting:16-3.5-4.0
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-notam}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-notam}
